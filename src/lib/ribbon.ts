@@ -1,0 +1,1 @@
+export function drawRibbon(ctx:CanvasRenderingContext2D,v:number,w=2){const h=ctx.canvas.height;const x=(ctx)._x||0;const c=lerp([34,197,94],[220,38,38],v);ctx.fillStyle=`rgb(${c[0]},${c[1]},${c[2]})`;ctx.fillRect(x,0,w,h);ctx._x=(x+w)%ctx.canvas.width}function lerp(a:number[],b:number[],t:number){return[0,1,2].map(i=>Math.round(a[i]+(b[i]-a[i])*t))}

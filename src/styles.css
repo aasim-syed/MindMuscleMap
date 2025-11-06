@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+/* Animated gradient blobs (background) */
+.bg-grad-1,
+.bg-grad-2,
+.bg-grad-3 {
+  position: absolute;
+  border-radius: 9999px;
+}
+.bg-grad-1 {
+  width: 60vmax; height: 60vmax;
+  left: -20vmax; top: -10vmax;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(34,197,94,0.5), rgba(34,197,94,0) 70%);
+}
+.bg-grad-2 {
+  width: 55vmax; height: 55vmax;
+  right: -15vmax; top: -5vmax;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(14,165,233,0.5), rgba(14,165,233,0) 70%);
+}
+.bg-grad-3 {
+  width: 50vmax; height: 50vmax;
+  bottom: -10vmax; left: 10vmax;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(217,70,239,0.4), rgba(217,70,239,0) 70%);
+}
+
+@keyframes float-1 {
+  0%,100% { transform: translateY(0px) translateX(0px) scale(1); }
+  50%     { transform: translateY(20px) translateX(10px) scale(1.05); }
+}
+@keyframes float-2 {
+  0%,100% { transform: translateY(0px) translateX(0px) scale(1); }
+  50%     { transform: translateY(-25px) translateX(-10px) scale(1.06); }
+}
+@keyframes float-3 {
+  0%,100% { transform: translateY(0px) translateX(0px) scale(1); }
+  50%     { transform: translateY(15px) translateX(-15px) scale(1.03); }
+}
+.animate-float-1 { animation: float-1 16s ease-in-out infinite; }
+.animate-float-2 { animation: float-2 18s ease-in-out infinite; }
+.animate-float-3 { animation: float-3 22s ease-in-out infinite; }

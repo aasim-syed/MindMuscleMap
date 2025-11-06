@@ -1,0 +1,1 @@
+# Pose Coach Remix — Technique Heatmap\nFully local TF.js + MediaPipe demo.
