@@ -1,6 +1,4 @@
 import GIF from "gif.js";
-// 👇 import the worker URL so Vite serves it correctly
-// (TS is fine with this because we have "types": ["vite/client"] in tsconfig)
 import workerUrl from "gif.js/dist/gif.worker.js?url";
 
 export async function exportCanvasGif(
@@ -25,14 +23,10 @@ export async function exportCanvasGif(
   for (let i = 0; i < frames; i++) {
     offctx.drawImage(canvas, 0, 0);
     gif.addFrame(off, { delay: interval, copy: true });
-    await sleep(interval);
+    await new Promise((r) => setTimeout(r, interval));
   }
   return new Promise((resolve) => {
     gif.on("finished", (blob: Blob) => resolve(blob));
     gif.render();
   });
-}
-
-function sleep(ms: number) {
-  return new Promise((r) => setTimeout(r, ms));
 }
